@@ -1,6 +1,14 @@
 @import './reset.css';
 @import './colors.css';
 
+a {
+  cursor: pointer;
+}
+
+a:visited {
+  color: var(--Linkbrary-primary-color);
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -9,6 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   background: var(--bg-color);
+  font-size: 90%;
 }
 
 .frame-main {
@@ -65,6 +74,10 @@ body {
   background: var(--bg-white);
 }
 
+.error-msg {
+  color: var(--Red);
+}
+
 .input-pw input {
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20);
@@ -80,7 +93,8 @@ body {
   gap: 10px;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue);
-  color: white;
+  color: var(--text-white);
+  font-size: 1rem;
   border: none;
 }
 
@@ -120,4 +134,8 @@ body {
 
 input:focus {
   border: 1px solid blue;
+}
+
+.form-input .border-red {
+  border: 1px solid var(--Red);
 }
