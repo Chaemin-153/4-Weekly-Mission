@@ -1,4 +1,3 @@
-import React from 'react';
 import shareImg from '../../../../images/share.svg';
 import renameImg from '../../../../images/rename.svg';
 import deleteImg from '../../../../images/delete.svg';

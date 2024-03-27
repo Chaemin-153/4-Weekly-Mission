@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import AddFolderModal from '../../../Modal/AddFolderModal/AddFolderModal';
 import styles from './FolderCategory.module.scss';
 import styled from 'styled-components';
 
@@ -7,6 +9,16 @@ const CategoryBtn = styled.div`
 `;
 
 function FolderCategory({ category, currentCategory, handleCategoryButton }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    if (!modalIsOpen) {
+      setModalIsOpen(true);
+    } else {
+      setModalIsOpen(false);
+    }
+  };
+
   return (
     <div className={styles.titleWrapper}>
       <div className={styles.categoryWrapper}>
@@ -26,9 +38,12 @@ function FolderCategory({ category, currentCategory, handleCategoryButton }) {
       </div>
 
       <div className={styles.addBtnWrapper}>
-        <p className={styles.addBtnText}>폴더 추가</p>
+        <p className={styles.addBtnText} onClick={toggleModal}>
+          폴더 추가
+        </p>
         <div className={styles.addBtnImage}></div>
       </div>
+      <AddFolderModal isOpen={modalIsOpen} handleCloseModal={toggleModal} />
     </div>
   );
 }
