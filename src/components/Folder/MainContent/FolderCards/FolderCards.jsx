@@ -16,7 +16,6 @@ export const FolderCards = ({ folder }) => {
             createdAt={created_at}
             description={description}
             url={url}
-            folder
           />
         ))
       ) : (
