@@ -50,6 +50,10 @@
 @media (max-width: 767px) {
   .titleWrapper {
     flex-direction: column;
-    gap: 12px;
+    align-items: start;
+
+    .categoryName {
+      margin: 24px 0 0;
+    }
   }
 }
