@@ -14,8 +14,8 @@
     position: relative;
     margin: 0 auto;
     top: 35vh;
+    // top: 15%;
     width: 360px;
-    height: 239px;
     background: white;
     padding: 1.8rem 3.2rem;
     border-radius: 1.5rem;
@@ -31,5 +31,9 @@
         height: 2.2rem;
       }
     }
+  }
+
+  .addLinkModal {
+    top: 15vh;
   }
 }
