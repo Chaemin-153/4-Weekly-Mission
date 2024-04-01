@@ -10,15 +10,16 @@ import SelectMenu from '../../../../SelectMenu/SelectMenu';
 export default function Card({ imageSource, createdAt, description, url, id }) {
   const [selectMenuIsOpen, setSelectMenuIsOpen] = useState(false);
   const kebabRef = useRef();
+
   const date = new Date(createdAt).toLocaleDateString();
   const dataStatus = updateStatus(createdAt);
 
-  const toggleSelectMenu = () => {
-    if (!selectMenuIsOpen) {
-      setSelectMenuIsOpen(true);
-    } else {
-      setSelectMenuIsOpen(false);
-    }
+  const openSelectMenu = () => {
+    setSelectMenuIsOpen(true);
+  };
+
+  const closeSelectMenu = () => {
+    setSelectMenuIsOpen(false);
   };
 
   return (
@@ -39,7 +40,11 @@ export default function Card({ imageSource, createdAt, description, url, id }) {
       />
       <div className={styles.textContainer}>
         <span>{createdAt ? dataStatus : null}</span>
-        <p>{description}</p>
+        {description ? (
+          <p>{description}</p>
+        ) : (
+          <p>No Description No Description No Description No Description</p>
+        )}
         <p className={styles.dateNumber}>{date}</p>
         <img
           className={styles.kebab}
@@ -47,10 +52,14 @@ export default function Card({ imageSource, createdAt, description, url, id }) {
           alt="star"
           width={21}
           height={17}
-          onClick={toggleSelectMenu}
+          onClick={openSelectMenu}
           ref={kebabRef}
         />
-        <SelectMenu isOpen={selectMenuIsOpen} url={url} />
+        <SelectMenu
+          isOpen={selectMenuIsOpen}
+          url={url}
+          handleClose={closeSelectMenu}
+        />
       </div>
     </div>
   );

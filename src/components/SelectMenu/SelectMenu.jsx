@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './SelectMenu.module.scss';
 import DeleteLinkModal from '../Modal/DeleteLinkModal/DeleteLinkModal';
+import useClickOutside from '../../hooks/useClickOutside';
 
-function SelectMenu({ isOpen, url }) {
+function SelectMenu({ isOpen, url, handleClose }) {
   const [deleteLinkModalIsOpen, setDeleteLinkModalIsOpen] = useState(false);
+  const selectMenuRef = useRef();
 
   const toggleDeleteModal = () => {
     if (!deleteLinkModalIsOpen) {
@@ -13,11 +15,10 @@ function SelectMenu({ isOpen, url }) {
     }
   };
 
-  return (
-    <div
-      className={styles.selectBox}
-      style={{ display: isOpen ? 'block' : 'none' }}
-    >
+  useClickOutside(selectMenuRef, handleClose);
+
+  return isOpen ? (
+    <div className={styles.selectBox} ref={selectMenuRef}>
       <div className={styles.delete} onClick={toggleDeleteModal}>
         삭제하기
       </div>
@@ -25,9 +26,11 @@ function SelectMenu({ isOpen, url }) {
       <DeleteLinkModal
         isOpen={deleteLinkModalIsOpen}
         handleCloseModal={toggleDeleteModal}
-        selectedName={url}
+        selectedLink={url}
       />
     </div>
+  ) : (
+    <></>
   );
 }
 
