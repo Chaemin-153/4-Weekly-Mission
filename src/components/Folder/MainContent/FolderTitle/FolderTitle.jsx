@@ -4,15 +4,25 @@ import deleteImg from '../../../../images/delete.svg';
 import styles from './FolderTitle.module.scss';
 import EditFolderModal from '../../../Modal/EditFolderModal/EditFolderModal';
 import { useState } from 'react';
+import DeleteFolderModal from '../../../Modal/DeleteFolderModal/DeleteFolderModal';
 
 export const FolderTitle = ({ currentCategory }) => {
   const [editFolderModalIsOpen, setEditFolderModalIsOpen] = useState(false);
+  const [deleteFolderModalIsOpen, setDeleteFolderModalIsOpen] = useState(false);
 
   const toggleEditFolderModal = () => {
     if (!editFolderModalIsOpen) {
       setEditFolderModalIsOpen(true);
     } else {
       setEditFolderModalIsOpen(false);
+    }
+  };
+
+  const toggleDeleteFolderModal = () => {
+    if (!deleteFolderModalIsOpen) {
+      setDeleteFolderModalIsOpen(true);
+    } else {
+      setDeleteFolderModalIsOpen(false);
     }
   };
 
@@ -39,13 +49,16 @@ export const FolderTitle = ({ currentCategory }) => {
               alt="renameImg"
             />
             <p className={styles.optionBtnText}>이름 변경</p>
-            <EditFolderModal
-              isOpen={editFolderModalIsOpen}
-              handleCloseModal={toggleEditFolderModal}
-              currentCategory={currentCategory}
-            />
           </div>
-          <div className={styles.optionBtnWrapper}>
+          <EditFolderModal
+            isOpen={editFolderModalIsOpen}
+            handleCloseModal={toggleEditFolderModal}
+            currentCategory={currentCategory}
+          />
+          <div
+            className={styles.optionBtnWrapper}
+            onClick={toggleDeleteFolderModal}
+          >
             <img
               className={styles.optionBtnImg}
               src={deleteImg}
@@ -53,6 +66,11 @@ export const FolderTitle = ({ currentCategory }) => {
             />
             <p className={styles.optionBtnText}>삭제</p>
           </div>
+          <DeleteFolderModal
+            isOpen={deleteFolderModalIsOpen}
+            handleCloseModal={toggleDeleteFolderModal}
+            selectedFolder={currentCategory}
+          />
         </div>
       )}
     </div>
