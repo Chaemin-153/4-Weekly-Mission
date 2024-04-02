@@ -1,7 +1,17 @@
 import Modal from '../Modal';
 import styles from './DeleteLinkModal.module.scss';
 
-const DeleteLinkModal = ({ isOpen, handleCloseModal, selectedLink }) => {
+interface DeleteLinkModalProps {
+  isOpen: boolean;
+  handleCloseModal: () => void;
+  selectedLink: string;
+}
+
+const DeleteLinkModal = ({
+  isOpen,
+  handleCloseModal,
+  selectedLink,
+}: DeleteLinkModalProps) => {
   return (
     <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
       <div className={styles.content}>

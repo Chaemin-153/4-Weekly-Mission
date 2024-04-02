@@ -5,10 +5,16 @@ import AddLinkModal from '../Modal/AddLinkModal/AddLinkModal';
 import useClickOutside from '../../hooks/useClickOutside';
 import useFetchFolderCategoryData from '../../hooks/useFetchFolderCategoryData';
 
-function SelectMenu({ isOpen, url, handleClose }) {
+interface SelectMenuProps {
+  isOpen: boolean;
+  url: string;
+  handleClose: () => void;
+}
+
+function SelectMenu({ isOpen, url, handleClose }: SelectMenuProps) {
   const [deleteLinkModalIsOpen, setDeleteLinkModalIsOpen] = useState(false);
   const [addLinkModalIsOpen, setAddLinkModalIsOpen] = useState(false);
-  const selectMenuRef = useRef();
+  const selectMenuRef = useRef<HTMLDivElement>(null);
 
   const categoryList = useFetchFolderCategoryData();
 

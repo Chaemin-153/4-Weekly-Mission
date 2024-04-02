@@ -1,21 +1,27 @@
 import noCardImg from '../../../../images/no-image.svg';
 import styles from './Card.module.scss';
 
+interface CardProps {
+  imageSource: string;
+  title: string;
+  description: string;
+  timePassed?: string;
+  formattedDate?: string;
+}
+
 function Card({
   imageSource,
   title,
   timePassed,
   description,
   formattedDate,
-  handleImageError,
-}) {
+}: CardProps) {
   return (
     <div className={styles.card}>
       <img
         src={imageSource || noCardImg}
         alt={title}
         className={styles.cardImg}
-        onError={handleImageError}
       />
       <div className={styles.textContainer}>
         <span>{timePassed}</span>

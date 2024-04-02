@@ -1,7 +1,20 @@
 import styles from './Modal.module.scss';
 import modalClose from '../../images/modalClose.svg';
+import { MouseEventHandler, ReactElement, ReactNode } from 'react';
 
-function Modal({ children, isOpen, handleCloseModal, isAddLinkModal = null }) {
+interface ModalProps {
+  children: ReactNode;
+  isOpen: boolean;
+  handleCloseModal: MouseEventHandler;
+  isAddLinkModal?: string;
+}
+
+function Modal({
+  children,
+  isOpen,
+  handleCloseModal,
+  isAddLinkModal = '',
+}: ModalProps): ReactElement {
   return (
     <div
       className={styles.backdrop}

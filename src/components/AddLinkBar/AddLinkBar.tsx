@@ -1,10 +1,11 @@
 import link from '../../images/link.svg';
 import { Link } from 'react-router-dom';
 import styles from './AddLinkBar.module.scss';
+import { FormEvent } from 'react';
 
 function AddLinkBar() {
-  const handleSearch = (event) => {
-    event.preventDefault();
+  const handleSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   return (

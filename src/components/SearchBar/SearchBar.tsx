@@ -1,9 +1,10 @@
+import { FormEvent } from 'react';
 import searchIcon from '../../images/Search.svg';
 import styles from './SearchBar.module.scss';
 
 function SearchBar() {
-  const handleSearch = (event) => {
-    event.preventDefault();
+  const handleSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   return (

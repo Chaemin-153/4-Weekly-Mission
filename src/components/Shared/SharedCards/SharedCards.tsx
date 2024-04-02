@@ -1,15 +1,10 @@
 import Card from './Card/Card';
 import useFetchCardsData from '../../../hooks/useFetchCardsData';
-import noCardImg from '../../../images/no-image.svg';
 import { Link } from 'react-router-dom';
 import styles from './SharedCards.module.scss';
 
-function SharedCards() {
+function SharedCards(): React.ReactElement {
   const cardsData = useFetchCardsData();
-
-  const handleImageError = (e) => {
-    e.target.src = { noCardImg };
-  };
 
   return cardsData ? (
     <div className={styles.cardList}>
@@ -20,18 +15,17 @@ function SharedCards() {
             id,
             imageSource,
             title,
-            timePassed,
             description,
+            timePassed,
             formattedDate,
           }) => (
             <Link to={url} key={id}>
               <Card
                 imageSource={imageSource}
                 title={title}
-                timePasse={timePassed}
+                timePassed={timePassed}
                 description={description}
                 formattedDate={formattedDate}
-                handleImageError={handleImageError}
               />
             </Link>
           )

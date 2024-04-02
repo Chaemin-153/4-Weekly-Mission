@@ -4,10 +4,8 @@ import calculateTimePassed from '../utils/calculateTimePassed';
 
 function useFetchCardsData() {
   const [cardsData, setCardsData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // setIsLoading(true);
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -17,16 +15,14 @@ function useFetchCardsData() {
           throw new Error('response 전달 실패');
         }
         const data = await response.json();
-        const links = data.folder.links.map((link) => ({
+        const links = data.folder.links.map((link: any) => ({
           ...link,
           timePassed: calculateTimePassed(link.createdAt),
           formattedDate: formatDate(link.createdAt),
         }));
         setCardsData(links);
-        // setIsLoading(false);
       } catch (error) {
         console.error('에러 발생:', error);
-        // setIsLoading(false);
       }
     };
 

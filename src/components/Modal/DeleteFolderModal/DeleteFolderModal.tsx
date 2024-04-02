@@ -1,7 +1,18 @@
+import { MouseEventHandler } from 'react';
 import Modal from '../Modal';
 import styles from './DeleteFolderModal.module.scss';
 
-const DeleteFolderModal = ({ isOpen, handleCloseModal, selectedFolder }) => {
+interface DeleteFolderModalProps {
+  isOpen: boolean;
+  handleCloseModal: MouseEventHandler;
+  selectedFolder: string;
+}
+
+const DeleteFolderModal = ({
+  isOpen,
+  handleCloseModal,
+  selectedFolder,
+}: DeleteFolderModalProps) => {
   return (
     <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
       <div className={styles.content}>

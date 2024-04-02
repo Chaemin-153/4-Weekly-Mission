@@ -3,10 +3,33 @@ import styles from './AddLinkModal.module.scss';
 import checkIcon from '../../../images/check.svg';
 import { useState } from 'react';
 
-const AddLinkModal = ({ isOpen, handleCloseModal, categoryList, link }) => {
+interface CategoryList {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: {
+    count: number;
+  };
+}
+
+interface AddLinkModalProps {
+  isOpen: boolean;
+  handleCloseModal: () => void;
+  categoryList: CategoryList[];
+  link: string;
+}
+
+const AddLinkModal = ({
+  isOpen,
+  handleCloseModal,
+  categoryList,
+  link,
+}: AddLinkModalProps) => {
   const [selectedId, setSelectedId] = useState(categoryList[0]?.id || null);
 
-  const handleCategoryClick = (categoryId) => {
+  const handleCategoryClick = (categoryId: number) => {
     setSelectedId(categoryId === selectedId ? null : categoryId);
   };
 

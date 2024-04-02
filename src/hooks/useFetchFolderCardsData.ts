@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 
-function useFetchFolderCardsData(folderId) {
+function useFetchFolderCardsData(folderId: string) {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {

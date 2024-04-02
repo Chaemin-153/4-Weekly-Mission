@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import defaultImg from '../../../../../images/no-image.svg';
 import starImg from '../../../../../images/star.svg';
 import kebabImg from '../../../../../images/kebab.svg';
@@ -7,9 +7,23 @@ import styles from './Card.module.scss';
 import { Link } from 'react-router-dom';
 import SelectMenu from '../../../../SelectMenu/SelectMenu';
 
-export default function Card({ imageSource, createdAt, description, url, id }) {
+interface FolderCardProps {
+  id: number;
+  imageSource: string;
+  createdAt: string;
+  description: string;
+  url: string;
+}
+
+export default function Card({
+  id,
+  imageSource,
+  createdAt,
+  description,
+  url,
+}: FolderCardProps) {
   const [selectMenuIsOpen, setSelectMenuIsOpen] = useState(false);
-  const kebabRef = useRef();
+  const kebabRef = useRef<HTMLImageElement>(null);
 
   const date = new Date(createdAt).toLocaleDateString();
   const dataStatus = updateStatus(createdAt);

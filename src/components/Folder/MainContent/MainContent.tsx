@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import SearchBar from '../../SearchBar/SearchBar';
 import useFetchFolderCategoryData from '../../../hooks/useFetchFolderCategoryData';
 import useFetchFolderCardsData from '../../../hooks/useFetchFolderCardsData';
@@ -15,7 +15,7 @@ function MainContent() {
 
   const folderCards = useFetchFolderCardsData(folderId);
 
-  const handleCategoryButton = (e) => {
+  const handleCategoryButton = (e: ChangeEvent<HTMLElement>): void => {
     setCurrentCategory(e.target.innerText);
     setFolderId(e.target.id);
   };

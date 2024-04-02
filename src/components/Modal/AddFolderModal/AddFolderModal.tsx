@@ -1,7 +1,13 @@
+import { MouseEventHandler } from 'react';
 import Modal from '../Modal';
 import styles from './AddFolderModal.module.scss';
 
-const AddFolderModal = ({ isOpen, handleCloseModal }) => {
+interface AddFolderModalProps {
+  isOpen: boolean;
+  handleCloseModal: MouseEventHandler;
+}
+
+const AddFolderModal = ({ isOpen, handleCloseModal }: AddFolderModalProps) => {
   return (
     <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
       <div className={styles.content}>

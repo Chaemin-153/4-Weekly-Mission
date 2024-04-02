@@ -1,7 +1,18 @@
+import { MouseEventHandler } from 'react';
 import Modal from '../Modal';
 import styles from './EditFolderModal.module.scss';
 
-const EditFolderModal = ({ isOpen, handleCloseModal, currentCategory }) => {
+interface EditFolderModalProps {
+  isOpen: boolean;
+  handleCloseModal: MouseEventHandler;
+  currentCategory: string;
+}
+
+const EditFolderModal = ({
+  isOpen,
+  handleCloseModal,
+  currentCategory,
+}: EditFolderModalProps) => {
   return (
     <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
       <div className={styles.content}>

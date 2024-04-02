@@ -3,10 +3,16 @@ import renameImg from '../../../../images/rename.svg';
 import deleteImg from '../../../../images/delete.svg';
 import styles from './FolderTitle.module.scss';
 import EditFolderModal from '../../../Modal/EditFolderModal/EditFolderModal';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import DeleteFolderModal from '../../../Modal/DeleteFolderModal/DeleteFolderModal';
 
-export const FolderTitle = ({ currentCategory }) => {
+interface FolderTitleProps {
+  currentCategory: string;
+}
+
+export const FolderTitle = ({
+  currentCategory,
+}: FolderTitleProps): ReactElement => {
   const [editFolderModalIsOpen, setEditFolderModalIsOpen] = useState(false);
   const [deleteFolderModalIsOpen, setDeleteFolderModalIsOpen] = useState(false);
 

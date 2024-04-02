@@ -3,12 +3,27 @@ import AddFolderModal from '../../../Modal/AddFolderModal/AddFolderModal';
 import styles from './FolderCategory.module.scss';
 import styled from 'styled-components';
 
-const CategoryBtn = styled.div`
+interface CategoryBtnProps {
+  id: string;
+  name: string;
+}
+
+interface FolderCategoryProps {
+  category: any;
+  currentCategory: string;
+  handleCategoryButton: any;
+}
+
+const CategoryBtn = styled.div<{ checked: boolean }>`
   background-color: ${({ checked }) => (checked ? '#6d6afe' : '#ffffff')};
   color: ${({ checked }) => (checked ? '#ffffff' : '#111322')};
 `;
 
-function FolderCategory({ category, currentCategory, handleCategoryButton }) {
+function FolderCategory({
+  category,
+  currentCategory,
+  handleCategoryButton,
+}: FolderCategoryProps) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const toggleModal = () => {
@@ -23,13 +38,12 @@ function FolderCategory({ category, currentCategory, handleCategoryButton }) {
     <div className={styles.titleWrapper}>
       <div className={styles.categoryWrapper}>
         {category &&
-          category.map(({ id, name }) => (
+          category.map(({ id, name }: CategoryBtnProps) => (
             <CategoryBtn
               className={styles.categoryBtn}
               id={id}
               key={id}
-              name="folderId"
-              checked={currentCategory === name ? true : null}
+              checked={currentCategory === name ? true : false}
               onClick={handleCategoryButton}
             >
               {name}

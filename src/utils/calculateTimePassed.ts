@@ -1,7 +1,8 @@
-function calculateTimePassed(createdAt) {
-  const createdDate = new Date(createdAt);
-  const now = new Date();
-  const differenceInSeconds = Math.floor((now - createdDate) / 1000);
+function calculateTimePassed(createdAt: string): string {
+  const createdDate = new Date(createdAt).getTime();
+  const now = new Date().getTime();
+  const passedTime = now - createdDate;
+  const differenceInSeconds = Math.floor(passedTime / 1000);
   const differenceInMinutes = Math.floor(differenceInSeconds / 60);
   const differenceInHours = Math.floor(differenceInMinutes / 60);
   const differenceInDays = Math.floor(differenceInHours / 24);
