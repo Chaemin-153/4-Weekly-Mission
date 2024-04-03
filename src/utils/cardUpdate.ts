@@ -1,6 +1,6 @@
-export const updateStatus = (createdAt: string) => {
+export const updateStatus = (created_at: string) => {
   const currentTime = new Date().getTime();
-  const createdTime = new Date(createdAt).getTime();
+  const createdTime = new Date(created_at).getTime();
   const timeDiffMinute = (currentTime - createdTime) / (1000 * 60);
   const { timeLength, timeUnit } = determineTimeUnit(timeDiffMinute);
   const updatedTime = getPluralWord(timeLength, timeUnit);
@@ -20,16 +20,19 @@ const determineTimeUnit = (minute: number) => {
     return { timeLength: 1, timeUnit: 'minute' };
   }
   if (minute < 60) {
-    return { timeLength: minute, timeUnit: 'minute' };
+    return { timeLength: Math.floor(minute), timeUnit: 'minute' };
   }
   if (minute < 60 * 24) {
-    return { timeLength: minute / 60, timeUnit: 'hour' };
+    return { timeLength: Math.floor(minute / 60), timeUnit: 'hour' };
   }
   if (minute < 60 * 24 * 30) {
-    return { timeLength: minute / (60 * 24), timeUnit: 'day' };
+    return { timeLength: Math.floor(minute / (60 * 24)), timeUnit: 'day' };
   }
   if (minute < 60 * 24 * 30 * 12) {
-    return { timeLength: minute / (60 * 24 * 30), timeUnit: 'month' };
+    return {
+      timeLength: Math.floor(minute / (60 * 24 * 30)),
+      timeUnit: 'month',
+    };
   }
   return {
     timeLength: minute / (60 * 24 * 30 * 12),

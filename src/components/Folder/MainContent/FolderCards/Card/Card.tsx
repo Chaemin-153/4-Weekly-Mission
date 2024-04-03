@@ -10,7 +10,7 @@ import SelectMenu from '../../../../SelectMenu/SelectMenu';
 interface FolderCardProps {
   id: number;
   imageSource: string;
-  createdAt: string;
+  created_at: string;
   description: string;
   url: string;
 }
@@ -18,15 +18,15 @@ interface FolderCardProps {
 export default function Card({
   id,
   imageSource,
-  createdAt,
+  created_at,
   description,
   url,
 }: FolderCardProps) {
   const [selectMenuIsOpen, setSelectMenuIsOpen] = useState(false);
   const kebabRef = useRef<HTMLImageElement>(null);
 
-  const date = new Date(createdAt).toLocaleDateString();
-  const dataStatus = updateStatus(createdAt);
+  const date = new Date(created_at).toLocaleDateString();
+  const dataStatus = updateStatus(created_at);
 
   const openSelectMenu = () => {
     setSelectMenuIsOpen(true);
@@ -53,7 +53,7 @@ export default function Card({
         height={34}
       />
       <div className={styles.textContainer}>
-        <span>{createdAt ? dataStatus : null}</span>
+        <span>{created_at ? dataStatus : null}</span>
         {description ? (
           <p>{description}</p>
         ) : (
