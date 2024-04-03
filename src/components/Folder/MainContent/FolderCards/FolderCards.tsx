@@ -3,8 +3,8 @@ import styles from './FolderCards.module.scss';
 
 interface FolderCardProps {
   id: number;
-  imageSource: string;
-  createdAt: string;
+  image_source: string;
+  created_at: string;
   description: string;
   url: string;
 }
@@ -22,15 +22,15 @@ export const FolderCards = ({ folder }: FolderProps) => {
         folder.map(
           ({
             id,
-            imageSource,
-            createdAt,
+            image_source,
+            created_at,
             description,
             url,
           }: FolderCardProps) => (
             <Card
               id={id}
-              imageSource={imageSource}
-              createdAt={createdAt}
+              imageSource={image_source}
+              created_at={created_at}
               description={description}
               url={url}
             />
