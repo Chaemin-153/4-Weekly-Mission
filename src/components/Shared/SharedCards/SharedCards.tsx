@@ -3,33 +3,50 @@ import useFetchCardsData from '../../../hooks/useFetchCardsData';
 import { Link } from 'react-router-dom';
 import styles from './SharedCards.module.scss';
 
-function SharedCards(): React.ReactElement {
+interface SharedCardsProps {
+  searchResult: string;
+}
+
+interface FilteredCard {
+  title: string;
+  description: string;
+  url: string;
+}
+
+function SharedCards({ searchResult }: SharedCardsProps): React.ReactElement {
   const cardsData = useFetchCardsData();
 
   return cardsData ? (
     <div className={styles.cardList}>
       <div className={styles.cardsContainer}>
-        {cardsData.map(
-          ({
-            url,
-            id,
-            imageSource,
-            title,
-            description,
-            timePassed,
-            formattedDate,
-          }) => (
-            <Link to={url} key={id}>
-              <Card
-                imageSource={imageSource}
-                title={title}
-                timePassed={timePassed}
-                description={description}
-                formattedDate={formattedDate}
-              />
-            </Link>
+        {cardsData
+          .filter(
+            (link: FilteredCard) =>
+              link.title?.includes(searchResult) ||
+              link.description?.includes(searchResult) ||
+              link.url.includes(searchResult)
           )
-        )}
+          .map(
+            ({
+              url,
+              id,
+              imageSource,
+              title,
+              description,
+              timePassed,
+              formattedDate,
+            }) => (
+              <Link to={url} key={id}>
+                <Card
+                  imageSource={imageSource}
+                  title={title}
+                  timePassed={timePassed}
+                  description={description}
+                  formattedDate={formattedDate}
+                />
+              </Link>
+            )
+          )}
       </div>
     </div>
   ) : (

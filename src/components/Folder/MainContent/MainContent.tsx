@@ -1,18 +1,18 @@
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import SearchBar from '../../SearchBar/SearchBar';
 import useFetchFolderCategoryData from '../../../hooks/useFetchFolderCategoryData';
 import useFetchFolderCardsData from '../../../hooks/useFetchFolderCardsData';
 import FolderCategory from './FolderCategory/FolderCategory';
 import { FolderTitle } from './FolderTitle/FolderTitle';
 import { FolderCards } from './FolderCards/FolderCards';
+import SearchResult from '../../SearchBar/SearchResult/SearchResult';
 
 function MainContent() {
   const [currentCategory, setCurrentCategory] = useState('전체');
-
   const [folderId, setFolderId] = useState('0');
+  const [searchResult, setSearchResult] = useState<string>('');
 
   const folderCategory = useFetchFolderCategoryData();
-
   const folderCards = useFetchFolderCardsData(folderId);
 
   const handleCategoryButton = (e: ChangeEvent<HTMLElement>): void => {
@@ -22,7 +22,8 @@ function MainContent() {
 
   return (
     <>
-      <SearchBar />
+      <SearchBar setSearchResult={setSearchResult} />
+      <SearchResult searchResult={searchResult} />
       {folderCategory ? (
         <>
           <FolderCategory
@@ -31,7 +32,9 @@ function MainContent() {
             handleCategoryButton={handleCategoryButton}
           />
           <FolderTitle currentCategory={currentCategory} />
-          {folderCards && <FolderCards folder={folderCards} />}
+          {folderCards && (
+            <FolderCards folder={folderCards} searchResult={searchResult} />
+          )}
         </>
       ) : (
         <div>저장된 링크가 없습니다.</div>

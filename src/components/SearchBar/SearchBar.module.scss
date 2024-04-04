@@ -2,7 +2,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 80vw;
+  // width: 80vw;
+  width: 1060px;
   height: 54px;
   padding: 15px 16px;
   border-radius: 10px;
@@ -20,23 +21,25 @@
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .search-bar {
+  .searchBar {
+    width: 80vw;
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  .search-bar input {
+  .searchBar input {
     width: calc(100% - 64px);
   }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  .search-bar {
+  .searchBar {
+    width: 80vw;
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  .search-bar input {
+  .searchBar input {
     width: calc(100% - 64px);
   }
 }
