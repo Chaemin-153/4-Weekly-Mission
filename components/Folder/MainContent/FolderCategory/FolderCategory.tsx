@@ -51,10 +51,8 @@ function FolderCategory({
           ))}
       </div>
 
-      <div className={styles.addBtnWrapper}>
-        <p className={styles.addBtnText} onClick={toggleModal}>
-          폴더 추가
-        </p>
+      <div className={styles.addBtnWrapper} onClick={toggleModal}>
+        <p className={styles.addBtnText}>폴더 추가</p>
         <div className={styles.addBtnImage}></div>
       </div>
       <AddFolderModal isOpen={modalIsOpen} handleCloseModal={toggleModal} />

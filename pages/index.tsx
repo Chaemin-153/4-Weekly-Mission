@@ -10,9 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={logo} />
       </Head>
-      <main>
-        <h1>안녕 HOME!!</h1>
-      </main>
+      <div className="main">HOME PAGE!</div>
     </>
   );
 }

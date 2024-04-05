@@ -12,8 +12,12 @@ function AddLinkBar() {
   return (
     <form className={styles.addLinkBar} onSubmit={handleSearch}>
       <Image src={link} alt="link" />
-      <input type="text" placeholder="링크를 추가해 보세요" />
-      <Link href="/folder">
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="링크를 추가해 보세요"
+      />
+      <Link className={styles.link} href="/folder">
         <div className={styles.addBtn}>추가하기</div>
       </Link>
     </form>

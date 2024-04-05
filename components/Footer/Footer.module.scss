@@ -9,25 +9,26 @@
   font-family: 'Abel', sans-serif;
   color: #676767;
   font-weight: 400;
-}
 
-// a {
-//   text-decoration: none;
-// }
+  .link {
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-.footerPrivacy,
-.footerFaq {
-  color: #676767;
-}
+  .footerLink {
+    display: flex;
+    gap: 30px;
 
-.footerLink {
-  display: flex;
-  gap: 30px;
-}
+    .footerPrivacy,
+    .footerFaq {
+      color: #676767;
+    }
+  }
 
-.footerIcon {
-  display: flex;
-  gap: 12px;
+  .footerIcons {
+    display: flex;
+    gap: 12px;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
@@ -39,28 +40,29 @@
     align-items: center;
     background: #111322;
     position: relative;
-  }
-  .footerText {
-    position: absolute;
-    left: 30px;
-    bottom: 0px;
-  }
-  .footerLink {
-    display: flex;
-    grid-area: a;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    font-family: Abel;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  .footerIcon {
-    display: flex;
-    grid-area: b;
-    justify-content: flex-end;
-    gap: 12px;
+
+    .footerText {
+      position: absolute;
+      left: 30px;
+      bottom: 0px;
+    }
+    .footerLink {
+      display: flex;
+      grid-area: a;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+      font-family: Abel;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .footerIcons {
+      display: flex;
+      grid-area: b;
+      justify-content: flex-end;
+      gap: 12px;
+    }
   }
 }

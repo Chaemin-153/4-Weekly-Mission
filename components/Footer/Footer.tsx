@@ -11,24 +11,24 @@ function Footer() {
     <footer className={styles.footer}>
       <p className={styles.footerText}>@codeit - 2023</p>
       <div className={styles.footerLink}>
-        <Link href="/privacy">
+        <Link className={styles.link} href="/privacy">
           <p className={styles.footerPrivacy}>Privacy Policy</p>
         </Link>
-        <Link href="/FAQ">
+        <Link className={styles.link} href="/FAQ">
           <p className={styles.footerFaq}>FAQ</p>
         </Link>
       </div>
-      <div className={styles.footIcon}>
-        <Link href="https://facebook.com/">
+      <div className={styles.footerIcons}>
+        <Link className={styles.link} href="https://facebook.com/">
           <Image src={facebookIcon} alt="페이스북" />
         </Link>
-        <Link href="https://twitter.com/">
+        <Link className={styles.link} href="https://twitter.com/">
           <Image src={twitterIcon} alt="트위터" />
         </Link>
-        <Link href="https://youtube.com/">
+        <Link className={styles.link} href="https://youtube.com/">
           <Image src={youtubeIcon} alt="유튜브" />
         </Link>
-        <Link href="https://instagram.com/">
+        <Link className={styles.link} href="https://instagram.com/">
           <Image src={instagramIcon} alt="인스타그램" />
         </Link>
       </div>

@@ -1,15 +1,10 @@
-// * {
-//   box-sizing: border-box;
-//   font-family: Pretendard;
-// }
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--bg-color);
   height: 93px;
-  padding: 33px 200px;
+  padding: 34px 200px;
   position: fixed;
   top: 0;
   left: 0;
