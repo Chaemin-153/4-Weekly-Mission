@@ -1,4 +1,5 @@
 import EmailInputForm from '@/components/LoginInputForm/EmailInputForm/EmailInputForm';
+import PasswordInputForm from '@/components/LoginInputForm/PasswordInputForm/PasswordInputForm';
 import Head from 'next/head';
 
 function signin() {
@@ -8,6 +9,7 @@ function signin() {
         <title>Linkbrary - Signin</title>
       </Head>
       <EmailInputForm />
+      <PasswordInputForm />
     </>
   );
 }
