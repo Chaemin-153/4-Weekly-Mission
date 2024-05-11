@@ -1,5 +1,4 @@
 import '@/src/styles/globals.scss';
-import Layout from '@/src/components/Layout';
 import React from 'react';
 
 export default function RootLayout({
@@ -9,9 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>
-        <Layout>{children}</Layout>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
