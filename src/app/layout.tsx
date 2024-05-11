@@ -1,5 +1,5 @@
-import '@/styles/globals.scss';
-import Layout from '@/components/Layout';
+import '@/src/styles/globals.scss';
+import Layout from '@/src/components/Layout';
 import React from 'react';
 
 export default function RootLayout({

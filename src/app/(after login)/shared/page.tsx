@@ -1,10 +1,10 @@
 'use client';
 
-import SearchBar from '@/components/SearchBar/SearchBar';
-import TopContent from '@/components/Shared/TopContent/TopContent';
-import SharedCards from '@/components/Shared/SharedCards/SharedCards';
+import SearchBar from '@/src/components/SearchBar/SearchBar';
+import TopContent from '@/src/components/Shared/TopContent/TopContent';
+import SharedCards from '@/src/components/Shared/SharedCards/SharedCards';
 import { useState } from 'react';
-import SearchResult from '@/components/SearchBar/SearchResult/SearchResult';
+import SearchResult from '@/src/components/SearchBar/SearchResult/SearchResult';
 import Head from 'next/head';
 
 function SharedPage() {
