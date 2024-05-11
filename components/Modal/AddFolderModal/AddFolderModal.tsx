@@ -1,3 +1,5 @@
+'use client';
+
 import { MouseEventHandler } from 'react';
 import Modal from '../Modal';
 import styles from './AddFolderModal.module.scss';

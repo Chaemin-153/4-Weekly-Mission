@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, useState } from 'react';
 import SearchBar from '../../SearchBar/SearchBar';
 import useFetchFolderCategoryData from '../../../hooks/useFetchFolderCategoryData';

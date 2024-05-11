@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './EmailInputForm.module.scss';
 
 function EmailInputForm() {

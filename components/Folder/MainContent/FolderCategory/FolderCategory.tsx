@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import AddFolderModal from '../../../Modal/AddFolderModal/AddFolderModal';
 import styles from './FolderCategory.module.scss';

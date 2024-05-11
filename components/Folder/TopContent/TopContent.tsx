@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './TopContent.module.scss';
 import AddLinkBar from '../../AddLinkBar/AddLinkBar';
 

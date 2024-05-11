@@ -1,3 +1,5 @@
+'use client';
+
 import SearchBar from '@/components/SearchBar/SearchBar';
 import TopContent from '@/components/Shared/TopContent/TopContent';
 import SharedCards from '@/components/Shared/SharedCards/SharedCards';

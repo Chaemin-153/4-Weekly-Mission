@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './SearchResult.module.scss';
 
 interface SearchResultProps {

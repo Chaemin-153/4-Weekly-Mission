@@ -1,3 +1,5 @@
+'use client';
+
 import logo from '@/public/icons/logo.svg';
 import styles from './Header.module.scss';
 import Profile from './Profile/Profile';

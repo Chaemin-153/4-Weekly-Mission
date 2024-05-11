@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './PasswordInputForm.module.scss';
 import showPasswordIcon from '@/public/icons/eye-off.svg';

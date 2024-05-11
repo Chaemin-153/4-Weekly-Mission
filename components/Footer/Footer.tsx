@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './Footer.module.scss';
 import facebookIcon from '@/public/icons/facebook.svg';
 import twitterIcon from '@/public/icons/twitter.svg';

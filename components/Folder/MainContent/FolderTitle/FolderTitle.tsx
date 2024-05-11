@@ -1,3 +1,5 @@
+'use client';
+
 import shareImg from '@/public/icons/share.svg';
 import renameImg from '@/public/icons/rename.svg';
 import deleteImg from '@/public/icons/delete.svg';

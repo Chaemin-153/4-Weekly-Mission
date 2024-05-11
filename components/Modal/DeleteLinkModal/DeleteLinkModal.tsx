@@ -1,3 +1,5 @@
+'use client';
+
 import Modal from '../Modal';
 import styles from './DeleteLinkModal.module.scss';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import Card from './Card/Card';
 import useFetchCardsData from '../../../hooks/useFetchCardsData';
 import Link from 'next/link';

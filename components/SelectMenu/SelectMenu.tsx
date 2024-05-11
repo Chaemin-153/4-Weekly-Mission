@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useState } from 'react';
 import styles from './SelectMenu.module.scss';
 import DeleteLinkModal from '../Modal/DeleteLinkModal/DeleteLinkModal';

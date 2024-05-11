@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import searchIcon from '@/public/icons/Search.svg';
 import closeIcon from '@/public/icons/modalClose.svg';

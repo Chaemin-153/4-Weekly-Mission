@@ -1,3 +1,5 @@
+'use client';
+
 import Modal from '../Modal';
 import styles from './AddLinkModal.module.scss';
 import checkIcon from '@/public/icons/check.svg';

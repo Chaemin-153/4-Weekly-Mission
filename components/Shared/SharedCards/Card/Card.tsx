@@ -1,3 +1,5 @@
+'use client';
+
 import noCardImg from '@/public/icons/no-image.svg';
 import styles from './Card.module.scss';
 import Image from 'next/image';

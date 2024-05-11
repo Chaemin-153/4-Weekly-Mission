@@ -1,3 +1,5 @@
+'use client';
+
 import TopContent from '@/components/Folder/TopContent/TopContent';
 import MainContent from '@/components/Folder/MainContent/MainContent';
 import Head from 'next/head';

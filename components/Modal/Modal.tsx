@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './Modal.module.scss';
 import modalClose from '@/public/icons/modalClose.svg';
 import Image from 'next/image';

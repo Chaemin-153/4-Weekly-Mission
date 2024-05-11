@@ -1,3 +1,5 @@
+'use client';
+
 import link from '@/public/icons/link.svg';
 import Link from 'next/link';
 import Image from 'next/image';
