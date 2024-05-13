@@ -2,13 +2,20 @@
 
 import Header from '@/src/components/Header/Header';
 import Footer from '@/src/components/Footer/Footer';
-import { ReactNode } from 'react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-type TChildren = {
-  children: ReactNode;
-};
+function Layout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
 
-function Layout({ children }: TChildren) {
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      router.push('/signin');
+    }
+  }, []);
+
   return (
     <>
       <Header />
