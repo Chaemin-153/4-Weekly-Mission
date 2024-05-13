@@ -7,9 +7,10 @@ import logo from '@/public/icons/logo.svg';
 import useFetchWithToken from '@/src/hooks/useFetchWithToken';
 import { FormEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from './SigninPage.module.scss';
+import styles from './SignupPage.module.scss';
 import EmailInput from '@/src/components/Input/EmailInput';
 import PasswordInput from '@/src/components/Input/PasswordInput';
+import ConfirmPasswordInput from '@/src/components/Input/ConfirmPasswordInput';
 
 export default function SignIn() {
   const { fetchWithToken } = useFetchWithToken();
@@ -18,9 +19,11 @@ export default function SignIn() {
   const [values, setValues] = useState({
     email: '',
     password: '',
+    confirmPassword: '',
   });
   const [isEmailError, setIsEmailError] = useState(false);
   const [isPasswordError, setIsPasswordError] = useState(false);
+  const [isConfirmPasswordError, setIsConfirmPasswordError] = useState(false);
   const [isBtnActive, setIsBtnActive] = useState(false);
 
   const handleChange = (e: any) => {
@@ -38,15 +41,14 @@ export default function SignIn() {
     const { email, password } = values;
 
     try {
-      const responseData = await fetchWithToken(
-        'https://bootcamp-api.codeit.kr/api/sign-in',
+      await fetchWithToken(
+        'https://bootcamp-api.codeit.kr/api/sign-up',
         'POST',
         {
           email,
           password,
         }
       );
-      localStorage.setItem('accessToken', responseData.data.accessToken);
       router.push('/folder');
     } catch (err: any) {
       // Error 객체에서 Message만 추출
@@ -55,12 +57,28 @@ export default function SignIn() {
     }
   };
 
+  // 비밀번호 확인 focus시, 동일한지 확인
+  const handleFocusConfirmPassword = () => {
+    const { password, confirmPassword } = values;
+    if (password === confirmPassword) {
+      setIsConfirmPasswordError(false);
+    } else {
+      setIsConfirmPasswordError(true);
+    }
+  };
+
+  // 비밀번호 확인 focus out시, 에러 메시지 없애기
+  const handleBlurConfirmPassword = () => {
+    setIsConfirmPasswordError(false);
+  };
+
   useEffect(() => {
-    const { email, password } = values;
+    const { email, password, confirmPassword } = values;
     const isLoginValid =
       email.trim() !== '' &&
       password.trim() !== '' &&
-      password.trim().length >= 8;
+      password.trim().length >= 8 &&
+      password === confirmPassword;
     setIsBtnActive(isLoginValid);
 
     // 이메일 형식 확인
@@ -94,9 +112,9 @@ export default function SignIn() {
             width={210}
           />
           <p className={styles.confirmMessage}>
-            회원이 아니신가요?
-            <Link href="/signup">
-              <span className={styles.signupLink}>회원 가입하기</span>
+            이미 회원이신가요?
+            <Link href="/signin">
+              <span className={styles.signupLink}>로그인 하기</span>
             </Link>
           </p>
         </div>
@@ -121,12 +139,24 @@ export default function SignIn() {
             errorMessage="비밀번호를 8자 이상 입력해주세요"
             required
           />
+          <ConfirmPasswordInput
+            labelName="비밀번호 확인"
+            type="password"
+            placeholder="비밀번호를 한번 더 입력해주세요"
+            name="confirmPassword"
+            onChange={handleChange}
+            onFocus={handleFocusConfirmPassword}
+            onBlur={handleBlurConfirmPassword}
+            error={isConfirmPasswordError}
+            errorMessage="비밀번호가 일치하지 않습니다"
+            required
+          />
           <button
             className={styles.submitBtn}
             type="submit"
             disabled={!isBtnActive}
           >
-            로그인
+            회원가입
           </button>
         </form>
       </div>
