@@ -1,5 +1,6 @@
-import '@/src/styles/globals.scss';
 import React from 'react';
+import '@/src/styles/globals.scss';
+import { UserProvider } from '@/src/contexts/userContext';
 
 export default function RootLayout({
   children,
@@ -8,7 +9,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <UserProvider>{children}</UserProvider>
+      </body>
     </html>
   );
 }

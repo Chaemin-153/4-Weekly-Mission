@@ -1,0 +1,53 @@
+.mainContents {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: var(--bg-color);
+
+  .topContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    .confirmMessage {
+      font-size: 14px;
+      .signupLink {
+        color: var(--Linkbrary-primary-color);
+        text-decoration-line: underline;
+        font-weight: bold;
+        margin-left: 6px;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    .submitBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      height: 50px;
+      padding: 14px 0;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      background: var(--gra-purpleblue-to-skyblue);
+      color: var(--text-white);
+
+      &:disabled {
+        background: #9fa6b2;
+      }
+    }
+  }
+}
